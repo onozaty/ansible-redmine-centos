@@ -22,10 +22,10 @@
     user_install: no
 
 - name: Install passenger apache2 module
-  shell: passenger-install-apache2-module --auto
+  shell: $0 -lc "passenger-install-apache2-module --auto"
 
 - name: Get passenger apache2 module snippet
-  shell: passenger-install-apache2-module --snippet
+  shell: $0 -lc "passenger-install-apache2-module --snippet"
   register: passenger_snippet
 
 - name: Add redmine.conf
