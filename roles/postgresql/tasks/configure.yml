@@ -10,7 +10,6 @@
       host all {{user.name}} 0.0.0.0/0 md5
       host all {{user.name}} ::0/0 md5
       {% endfor %}
-  notify: Restart PostgreSQL service
 
 - name: Add configuration to postgresql.conf
   become: yes
@@ -19,4 +18,6 @@
     dest: '{{postgresql_data_dir}}/postgresql.conf'
     content: |
       listen_addresses = '*'
-  notify: Restart PostgreSQL service
+
+- name: Restart PostgreSQL service
+  service: name={{postgresql_service_name}} state=restarted
