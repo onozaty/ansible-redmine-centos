@@ -41,6 +41,9 @@
     line: DocumentRoot /var/lib/redmine/public
     backup: yes
 
+- name: Change owner
+  shell: chown -R apache:apache /var/lib/redmine/
+
 - name: Restart httpd
   service:
     name: httpd
