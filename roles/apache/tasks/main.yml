@@ -23,6 +23,8 @@
 
 - name: Install passenger apache2 module
   shell: $0 -lc "passenger-install-apache2-module --auto"
+  args:
+    creates: /etc/httpd/conf.d/redmine.conf
 
 - name: Get passenger apache2 module snippet
   shell: $0 -lc "passenger-install-apache2-module --snippet"
