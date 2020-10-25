@@ -8,6 +8,7 @@ postgresql_databases:
 postgresql_users:
   - name: redmine
     pass: redmine
+    role_attr_flags: CREATEDB
 
 # redmine
 db_username: redmine
