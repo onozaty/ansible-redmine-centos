@@ -2,10 +2,16 @@
   yum: name={{postgresql_yum_repository_url}}
 
 - name: Install dependencies
-  yum: name=python-psycopg2
+  yum:
+    name:
+      - python-psycopg2
+      - centos-release-scl
 
 - name: Install PostgreSQL
-  yum: name=postgresql{{postgresql_version_terse}}-server
+  yum:
+    name: 
+      - postgresql{{postgresql_version_terse}}-server
+      - postgresql{{postgresql_version_terse}}-devel
 
 - name: Init database
   command: >

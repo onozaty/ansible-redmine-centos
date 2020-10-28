@@ -2,7 +2,6 @@
   yum:
     name: 
       - subversion
-      - postgresql-devel
 
 - name: Checkout Redmine code
   subversion:
@@ -24,6 +23,11 @@
     name: bundler
     executable: "{{gem_path}}"
     user_install: no
+
+- name: Bundle config pg
+  shell: $0 -lc "bundle config build.pg -- --with-pg-dir=/usr/pgsql-{{postgresql_version}}"
+  args:
+    chdir: "{{redmine_dir}}"
 
 - name: Install gems
   shell: $0 -lc "bundle install --path vendor/bundle"
