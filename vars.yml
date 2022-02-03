@@ -15,4 +15,4 @@ postgresql_users:
 db_username: redmine
 db_password: redmine
 
-redmine_repo: http://svn.redmine.org/redmine/tags/4.2.2/
+redmine_repo: http://svn.redmine.org/redmine/tags/4.2.3/
